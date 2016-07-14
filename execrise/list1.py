@@ -44,7 +44,6 @@ def front_x(words):
         else:
             lst.append(a)
     lst.sort()
-    xlst.sort()
     lst2 = xlst + lst
     return  lst2
 
