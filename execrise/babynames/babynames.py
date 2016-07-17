@@ -35,20 +35,36 @@ Suggested milestones for incremental development:
 """
 
 def extract_names(filename):
-  """
-  Given a file name for baby.html, returns a list starting with the year string
-  followed by the name-rank strings in alphabetical order.
-  ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
-  """
-  # +++your code here+++
-  return
-
-
+    
+    """
+    Given a file name for baby.html, returns a list starting with the year string
+    followed by the name-rank strings in alphabetical order.
+    ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
+    """
+    print filename[0]
+    f = open(filename[0],"r+")
+    fstring = str(f)
+    yearstr = re.search("file 'baby(\w+).html",fstring)
+    year = yearstr.group(1)
+    raw_list = re.findall("<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>",f.read())
+    result = []
+    for a in raw_list:
+        b = a[1]+' '+a[0]
+        c = a[2]+' '+a[0]
+        result.append(b)
+        result.append(c)
+    result.sort()
+    result.insert(0,year)
+    return result    
+  
+  
 def main():
   # This command-line parsing code is provided.
   # Make a list of command line arguments, omitting the [0] element
   # which is the script itself.
   args = sys.argv[1:]
+  
+  
 
   if not args:
     print 'usage: [--summaryfile] file [file ...]'
@@ -61,8 +77,174 @@ def main():
     del args[0]
 
   # +++your code here+++
+'''<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+<<<<<<< Local Changes
+  argout = str(arg)+"_summary"
+  w = open(argout,"w+")
+  w.open(extract_names(args))
+ #print extract_names(args)
+=======
+  arg_out = str(agr)+"_out"
+=======
+  arg_out = str(args)+"_out"
+>>>>>>> External Changes
+  print extract_names(args)
+<<<<<<< Local Changes
+  w = open(arg_out,'w')
+  w.write(extract_names(args))
+>>>>>>> External Changes
+=======
+  w = open(arg_out,'w')
+  w.write(extract_names(args))
+>>>>>>> External Changes
   # For each filename, get the names, then either print the text output
-  # or write it to a summary file
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
   
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print out
+  w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  out2 =  out.splice(",")
+  w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  out2 =  out.splice(",")
+  w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  out.splice(",")
+  w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  out.splice(",")
+  w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  ','.join(out)
+  print out2
+  #w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  '\n'.join(out)
+  print out2
+  #w.write(extract_names(args))
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  '\n'.join(out)
+  print out2
+  w.write(out2)
+  
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  '\n'.join(out)
+  print out2
+  w.write(out2)
+  w.close() 
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args)+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  '\n'.join(out)
+  print out2
+  w.write(out2)
+  w.close() 
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+=======
+  arg_out = str(args[0])+"_out"
+  #print extract_names(args)
+  
+  w = open(arg_out,'w')
+  out = extract_names(args)
+  print type(out)
+  out2 =  '\n'.join(out)
+  print out2
+  w.write(out2)
+  w.close() 
+# For each filename, get the names, then either print the text output
+>>>>>>> External Changes
+  # or write it to a summary file
+'''  
 if __name__ == '__main__':
   main()
