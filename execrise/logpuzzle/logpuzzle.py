@@ -47,12 +47,15 @@ def download_images(img_urls, dest_dir):
   """
   # +++your code here+++
   #urllib.urlretrieve('http://google.com/intl/en_ALL/images/logo.gif', 'blah.gif')
+  if not os.path.exists(dest_dir):
+	os.mkdir(dest_dir)
+  
   i = 0
   for a in img_urls:
       i += 1
       fullname = "http://code.google.com" + a
       b = "img"+str(i)+".gif"
-      urllib.urlretrieve(fullname, b)
+      urllib.urlretrieve(fullname, os.path.join(dest_dir,b))
   
 
 def main():
